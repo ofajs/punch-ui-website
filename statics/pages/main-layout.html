@@ -1,0 +1,67 @@
+<template page>
+  <l-m src="@pui/packages/navigation/nav-layout.html"></l-m>
+  <l-m src="@pui/packages/navigation/nav-bar.html"></l-m>
+
+  <style>
+    @media screen and (min-width: 600px) {
+      p-nav-layout::part(drawer-mask) {
+        display: none;
+      }
+    }
+  </style>
+
+  <p-nav-layout
+    attr:open-drawer="openDrawer ? '' : null"
+    on:click-drawer-mask="openDrawer = false"
+  >
+    <button
+      slot="top"
+      class="drawer-btn"
+      on:click="openDrawer = !openDrawer"
+      style="margin: 0 auto 10px 10px"
+    >
+      Drawer
+    </button>
+
+    <button slot="drawer" on:click="openDrawer = false" style="width: 80px">
+      close
+    </button>
+
+    <div slot="drawer">drawer</div>
+
+    <slot></slot>
+
+    <p-nav-bar slot="nav" auto-active sync:active-id="activeId">
+      <p-nav-item>
+        首页
+        <iconify-icon icon="material-symbols:home" slot="icon"></iconify-icon>
+      </p-nav-item>
+      <p-nav-item>
+        <iconify-icon
+          icon="fluent:movies-and-tv-16-filled"
+          slot="icon"
+        ></iconify-icon>
+        组件概览
+      </p-nav-item>
+      <p-nav-item>
+        <iconify-icon icon="material-symbols:photo" slot="icon"></iconify-icon>
+        文档
+      </p-nav-item>
+    </p-nav-bar>
+  </p-nav-layout>
+  <script>
+    export default async () => {
+      return {
+        data: {
+          activeId: "0",
+          openDrawer: false,
+        },
+        watch: {
+          activeId(val) {
+            console.log("activeId", val);
+          },
+        },
+      };
+    };
+  </script>
+</template>

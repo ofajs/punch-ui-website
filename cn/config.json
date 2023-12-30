@@ -1,0 +1,22 @@
+[
+  {
+    "name": "首页",
+    "icon": "material-symbols:home",
+    "href": "/cn/index.html"
+  },
+  {
+    "name": "组件概览",
+    "icon": "iconamoon:component-fill",
+    "href": "/cn/components.html"
+  },
+  {
+    "name": "文档",
+    "icon": "solar:document-bold",
+    "href": "/cn/docs/index.html"
+  },
+  {
+    "name": "定制",
+    "icon": "fluent:paint-brush-16-filled",
+    "href": "/cn/custom.html"
+  }
+]

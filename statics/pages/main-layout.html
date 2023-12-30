@@ -3,6 +3,10 @@
   <l-m src="@pui/packages/navigation/nav-bar.html"></l-m>
 
   <style>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
     @media screen and (min-width: 600px) {
       p-nav-layout::part(drawer-mask) {
         display: none;
@@ -31,22 +35,15 @@
 
     <slot></slot>
 
-    <p-nav-bar slot="nav" auto-active sync:active-id="activeId">
-      <p-nav-item>
-        首页
-        <iconify-icon icon="material-symbols:home" slot="icon"></iconify-icon>
-      </p-nav-item>
-      <p-nav-item>
-        <iconify-icon
-          icon="fluent:movies-and-tv-16-filled"
-          slot="icon"
-        ></iconify-icon>
-        组件概览
-      </p-nav-item>
-      <p-nav-item>
-        <iconify-icon icon="material-symbols:photo" slot="icon"></iconify-icon>
-        文档
-      </p-nav-item>
+    <p-nav-bar slot="nav" sync:active-id="activeId">
+      <x-fill :value="navs">
+        <a attr:href="$data.href" olink>
+          <p-nav-item attr:active-item="$host.isActive($data)">
+            {{$data.name}}
+            <iconify-icon attr:icon="$data.icon" slot="icon"></iconify-icon>
+          </p-nav-item>
+        </a>
+      </x-fill>
     </p-nav-bar>
   </p-nav-layout>
   <script>
@@ -55,11 +52,26 @@
         data: {
           activeId: "0",
           openDrawer: false,
+          navs: [],
         },
         watch: {
           activeId(val) {
             console.log("activeId", val);
           },
+        },
+        proto: {
+          isActive(data) {
+            const currentURLObj = new URL(this.app.current.src);
+
+            const selfURLObj = new URL(data.href, location.href);
+
+            return currentURLObj.href === selfURLObj.href ? "" : null;
+          },
+        },
+        ready() {
+          if (navsData) {
+            this.navs = navsData;
+          }
         },
       };
     };

@@ -3,16 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Punch UI</title>
-    <script src="./statics/init.js"></script>
+    <title>Custom</title>
+    <script>
+      const configUrl = "/cn/config.json";
+    </script>
+    <script src="/statics/init.js" type="module"></script>
   </head>
   <body>
-    <o-app src="./statics/app.js">
+    <o-app src="/statics/app.js">
       <template page>
-        asd
+        Custom
         <script>
           export default {
-            parent: "./statics/pages/main-layout.html",
+            parent: "/statics/pages/main-layout.html",
           };
         </script>
       </template>

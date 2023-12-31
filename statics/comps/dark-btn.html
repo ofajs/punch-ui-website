@@ -1,0 +1,49 @@
+<template component>
+  <style>
+    :host {
+      display: block;
+      align-self: center;
+      margin-top: auto;
+      margin-bottom: 16px;
+    }
+  </style>
+  <l-m src="@pui/packages/button/button.html"></l-m>
+  <div>
+    <p-button variant="outlined" icon on:click="clickHandle">
+      <x-if :value="isDark.value">
+        <iconify-icon icon="material-symbols:light-mode"></iconify-icon>
+      </x-if>
+      <x-else>
+        <iconify-icon icon="material-symbols:dark-mode"></iconify-icon>
+      </x-else>
+    </p-button>
+  </div>
+  <script>
+    export default async ({ load }) => {
+      const { isDark } = await load("@pui/packages/commons/data.js");
+
+      return {
+        data: {
+          isDark: false,
+        },
+        proto: {
+          clickHandle() {
+            this.isDark.value = !this.isDark.value;
+
+            if (this.isDark.value) {
+              $("html").classList.add("dark");
+            } else {
+              $("html").classList.remove("dark");
+            }
+          },
+        },
+        attached() {
+          this.isDark = isDark;
+        },
+        detached() {
+          this.isDark = {};
+        },
+      };
+    };
+  </script>
+</template>

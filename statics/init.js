@@ -32,14 +32,19 @@ const appendSrouce = (src, type = "script") => {
 };
 
 appendSrouce("/statics/css/public.css", "link");
-fetch(configUrl)
-  .then((e) => e.json())
-  .then((data) => {
-    window.navsData = data;
 
-    return appendSrouce(
-      "https://cdn.jsdelivr.net/gh/kirakiray/ofa.js@4.3.43/dist/ofa.min.js"
-    );
+if (localStorage.__isDark === "1") {
+  document.body.parentNode.classList.add("dark");
+}
+
+Promise.all([
+  fetch(configUrl).then((e) => e.json()),
+  appendSrouce(
+    "https://cdn.jsdelivr.net/gh/kirakiray/ofa.js@4.3.43/dist/ofa.min.js"
+  ),
+])
+  .then(([data]) => {
+    window.navsData = data;
   })
   .then(() => {
     // 初始化逻辑

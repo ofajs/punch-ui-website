@@ -1,15 +1,22 @@
 <template page>
   <l-m src="@pui/packages/navigation/nav-layout.html"></l-m>
   <l-m src="@pui/packages/navigation/nav-bar.html"></l-m>
+  <l-m src="../comps/dark-btn.html"></l-m>
 
   <style>
     a {
       color: inherit;
       text-decoration: none;
     }
+    dark-btn {
+      display: none;
+    }
     @media screen and (min-width: 600px) {
       p-nav-layout::part(drawer-mask) {
         display: none;
+      }
+      dark-btn {
+        display: block;
       }
     }
   </style>
@@ -45,6 +52,8 @@
         </a>
       </x-fill>
     </p-nav-bar>
+
+    <dark-btn slot="nav"></dark-btn>
   </p-nav-layout>
   <script>
     export default async () => {

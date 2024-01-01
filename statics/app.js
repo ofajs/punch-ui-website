@@ -5,10 +5,10 @@ export const pageAnime = {
   },
   next: {
     opacity: 0,
-    transform: "translate(30px, 0)",
+    transform: "translate(0, 30px)",
   },
   previous: {
     opacity: 0,
-    transform: "translate(-30px, 0)",
+    transform: "translate(0, 30px)",
   },
 };

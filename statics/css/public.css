@@ -15,3 +15,10 @@ body {
 o-app {
   height: 100%;
 }
+
+html {
+  --simp-block-bg: var(--md-ref-palette-primary95);
+}
+html.dark {
+  --simp-block-bg: var(--md-ref-palette-normal10);
+}

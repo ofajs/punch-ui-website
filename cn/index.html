@@ -18,17 +18,24 @@
         <style>
           p-card {
             width: 320px;
-            height: 150px;
             margin: 16px;
+            padding-bottom: 16px;
           }
           p-card p {
             font-size: 16px;
+          }
+
+          .flex-con {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
           }
         </style>
         <simp-block>
           <h2>Punch UI</h2>
           <p>基于 Material 3 和 Web Components 开发的UI组件</p>
-          <div style="display: flex">
+          <div class="flex-con">
             <p-card filled>
               <h3>Material 3</h3>
               <p>谷歌设计的一套UI漂亮的标准</p>
@@ -45,6 +52,24 @@
               <p>一个标签就能使用以往非常复杂的组件</p>
             </p-card>
           </div>
+        </simp-block>
+        <simp-block>
+          <h2>大量精美组件</h2>
+          <p>基于 Material 3设计，包含大量可快速使用且精美的组件</p>
+        </simp-block>
+        <simp-block>
+          <h2>在React和 Vue同样可用</h2>
+          <p>所有的框架用的是同一套代码，使用起来不会产生偏差</p>
+        </simp-block>
+        <simp-block>
+          <h2>最好用的表单组件</h2>
+          <p>不需要繁琐的配置，快速操作你的表单</p>
+        </simp-block>
+        <simp-block>
+          <h2>可定制性</h2>
+          <p>
+            可以通过定制工具修改组件的内部细节，快速定制属于你公司的专属组件
+          </p>
         </simp-block>
         <script>
           export default {

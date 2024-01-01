@@ -1,0 +1,27 @@
+<template component>
+  <style>
+    :host {
+      display: block;
+      padding: 80px 0;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    ::slotted(h2) {
+      font-weight: bold;
+      font-size: 50px;
+      margin: 0 220px;
+    }
+
+    ::slotted(p) {
+      margin: 0 auto;
+      font-size: 30px;
+    }
+  </style>
+  <div class="container">
+    <slot></slot>
+  </div>
+</template>

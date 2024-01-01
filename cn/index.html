@@ -12,7 +12,40 @@
   <body>
     <o-app src="/statics/app.js">
       <template page>
-        Home
+        <l-m src="/statics/comps/simp-block.html"></l-m>
+        <l-m src="@pui/packages/card/card.html"></l-m>
+        <l-m src="@pui/packages/button/button.html"></l-m>
+        <style>
+          p-card {
+            width: 320px;
+            height: 150px;
+            margin: 16px;
+          }
+          p-card p {
+            font-size: 16px;
+          }
+        </style>
+        <simp-block>
+          <h2>Punch UI</h2>
+          <p>基于 Material 3 和 Web Components 开发的UI组件</p>
+          <div style="display: flex">
+            <p-card filled>
+              <h3>Material 3</h3>
+              <p>谷歌设计的一套UI漂亮的标准</p>
+            </p-card>
+            <p-card filled>
+              <h3>快速引用</h3>
+              <p>
+                不需要学习前端三件套，基于 web
+                components，可以像使用jQuery直接引用，立即开发项目
+              </p>
+            </p-card>
+            <p-card filled>
+              <h3>组件简单易用</h3>
+              <p>一个标签就能使用以往非常复杂的组件</p>
+            </p-card>
+          </div>
+        </simp-block>
         <script>
           export default {
             parent: "/statics/pages/main-layout.html",
